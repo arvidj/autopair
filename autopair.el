@@ -344,9 +344,10 @@ For now, simply returns `last-command-event'"
            (define-key map (kbd "<backspace>") 'autopair-backspace)
            (define-key map [backspace] 'autopair-backspace)
            (define-key map (kbd "DEL") 'autopair-backspace)
-           (define-key map [return] 'autopair-newline)
+		   (define-key map [return] 'autopair-newline)
            (define-key map (kbd "RET") 'autopair-newline)
-           (dotimes (char 256) ;; only searches the first 256 chars,
+		   (define-key map (kbd "C-j") 'autopair-newline)
+		   (dotimes (char 256) ;; only searches the first 256 chars,
              ;; TODO: is this enough/toomuch/stupid?
              (unless (member char
                              (getf autopair-dont-pair :never))
